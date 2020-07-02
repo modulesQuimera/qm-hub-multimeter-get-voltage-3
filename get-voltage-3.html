@@ -1,7 +1,7 @@
 <script type="text/javascript">
     RED.nodes.registerType('get-voltage-3',{
         category: 'multimeter modular',
-        color: '#FFE4B5',
+        color: '#C0C0C0',
         defaults: {
             name:{ value: "" },
             // mapeamento:{ value:"", type: "mapping-get-voltage-3" },
@@ -12,9 +12,9 @@
         },
         inputs:1,
         outputs:1,
-        icon: "font-awesome/fa-bars",
-        label: function() { return this.name || "get-voltage-3" },
-        paletteLabel: "get-voltage-3",
+        icon: "./icons/Get Voltage 3.svg",
+        label: function() { return this.name || "Get Voltage-3" },
+        paletteLabel: "Get Voltage 3",
         // oneditprepare: function() {
         //     var ports = []
         //     var self = this
