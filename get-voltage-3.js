@@ -5,6 +5,10 @@ module.exports = function(RED) {
 
     function getVoltage3Node(config) {
         RED.nodes.createNode(this, config);
+        this.compare_select = config.compare_select;
+        this.equalTo = config.equalTo;
+        this.maxValue = config.maxValue;
+        this.minValue = config.minValue;
         var node = this
         node.AC_mode = config.AC_mode === "true" ? true : false;
         node.scale = config.scale;
@@ -15,6 +19,29 @@ module.exports = function(RED) {
         // if (this.serialConfig) {
         // node.port = serialPool.get(this.serialConfig);
         node.on('input', function(msg, send, done) {
+
+            var _compare = {};
+            if (node.compare_select == "equalTo") {
+                _compare = {
+                    voltage_value: {"==": (!isNaN(parseFloat(node.equalTo)))? parseFloat(node.equalTo):node.equalTo }
+                }
+            }
+            if (node.compare_select == "interval") {
+                _compare = {
+                    voltage_value: {">=": parseFloat(node.minValue), "<=": parseFloat(node.maxValue)}
+                }
+            }
+            if (node.compare_select == "maxValue") {
+                _compare = {
+                    voltage_value: {">=": null, "<=": parseFloat(node.maxValue)}
+                }
+            }
+            if (node.compare_select == "minValue") {
+                _compare = {
+                    voltage_value: {">=": parseFloat(node.minValue), "<=": null}
+                }
+            }
+
             var globalContext = node.context().global;
             var exportMode = globalContext.get("exportMode");
             var currentMode = globalContext.get("currentMode");
@@ -24,7 +51,8 @@ module.exports = function(RED) {
                 method: "get_voltage_3",
                 // channel_number: parseInt(node.channel_number),
                 AC_mode: node.AC_mode ,
-                scale: parseFloat(node.scale) 
+                scale: parseFloat(node.scale),
+                compare: _compare
             }
             var file = globalContext.get("exportFile")
             var slot = globalContext.get("slot");

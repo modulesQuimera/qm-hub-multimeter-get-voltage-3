@@ -9,31 +9,46 @@
             AC_mode:{ value:"" },
             // channel_number:{ value:"" },
             scale: { value:"" },
+            compare_select: {value:"equalTo", required:true},
+            equalTo: {value: ''},
+            maxValue: {value: null, validate:RED.validators.number()},
+            minValue: {value: null, validate:RED.validators.number()}
         },
         inputs:1,
         outputs:1,
-        icon: "./icons/Get Voltage 3.svg",
+        icon: "./icons/Get_Voltage_3.svg",
         label: function() { return this.name || "Get Voltage-3" },
         paletteLabel: "Get Voltage 3",
-        // oneditprepare: function() {
-        //     var ports = []
-        //     var self = this
+        oneditprepare: function() {
+            var node = this;
+            var scope = node.scope || [];
 
-        //     $.getJSON('getVoltage3',function(data) {
-        //         ports = data  
-        //         var portType = "custom";
-        //         for (var i in ports) {
-        //             if (self.channel_number == ports[i].value) {
-        //                 portType = self.channel_number;
-        //             }
-        //         }
-        //         $("#node-config-input-port").typedInput({
-        //             default: self.channel_number,
-        //             types:ports
-        //         });
-        //     })
-        //     $("#node-input-mapeamento").val($("#node-input-mapeamento option:first").val());
-        // },
+            $("#node-input-compare_select").on("change", function(e) {
+                var compare = $(this).val();
+                if (compare === "equalTo") {
+                    $(".node-input-equal-to").show();
+                    $(".node-input-max-value").hide();
+                    $(".node-input-min-value").hide();
+                }
+                if (compare === "interval") {
+                    $(".node-input-equal-to").hide();
+                    $(".node-input-max-value").show();
+                    $(".node-input-min-value").show();
+                }
+
+                if (compare === "maxValue") {
+                    $(".node-input-equal-to").hide();
+                    $(".node-input-max-value").show();
+                    $(".node-input-min-value").hide();
+                }
+                if (compare === "minValue") {
+                    $(".node-input-equal-to").hide();
+                    $(".node-input-max-value").hide();
+                    $(".node-input-min-value").show();
+                }
+                // node._resize();
+            });
+        },
         // oneditsave: function() {
         //     var mytype = $("#node-config-input-port").typedInput('type');
 
@@ -44,26 +59,134 @@
 
 </script>
 
+</script>
+
+
+<style>
+
+    label{
+        width: 50% !important;
+        margin-bottom: 2px !important;
+    }
+
+    hr {
+    width: 40% !important;
+    float: left !important;
+    }
+
+    .hr-div-get-voltage-3{
+        display: flex !important;
+        justify-content: space-between !important;
+        margin-top: 200px !important;
+    }
+
+    .optional{
+        height: max-content !important;
+        margin-top: 10px !important;
+    }
+
+    .descript{
+        text-align: center;
+    }
+
+    .columm{
+        display: flex !important;
+        flex-direction: column !important;
+    }
+
+
+</style>
+
 <script type="text/html" data-template-name="get-voltage-3">
-    <div class="form-row">
+
+    <div class="form-row columm">
+        <strong class="descript">
+            A comparation is made with the measured value of three-phase voltage.
+        </strong>
+    </div>
+    <!-- <div class="form-row">
         <label for="node-input-name"><i class="fa fa-tag"></i> Name</label>
         <input type="text" id="node-input-name" placeholder="Name">
     </div>
-    <br>
-    <div class="form-row">
-        <label for="node-input-AC_mode"><i class="fa fa-sliders"></i> AC mode</label>
-        <select id="node-input-AC_mode" style="width:16%">
-            <option value="true" selected>True</option> 
-            <option value="false">False</option>
+    <br> -->
+
+    <div style="display: flex;">
+        <div class="form-row columm" style=" width: 50%; float: left;">
+            <label for="node-input-AC_mode"><i class="fa fa-sliders"></i> AC mode</label>
+            <select id="node-input-AC_mode" style="width:50%">
+                <option value="true" selected>True</option> 
+                <option value="false">False</option>
+            </select>
+            <!-- <label for="node-input-scale" style="margin-left: 27%"><i class="fa fa-expand"></i> Scale</label> -->
+        
+            <!-- <select id="node-input-scale" style="width:13%; margin-left:-10%">
+                <option value="300" selected>300</option> 
+                <option value="30">30</option>
+                <option value="6">6</option>
+            </select> -->
+        </div>
+
+        <div class="form-row columm" style=" width: 50%; float: left;">
+            <!-- <label for="node-input-AC_mode"><i class="fa fa-sliders"></i> AC mode</label>
+            <select id="node-input-AC_mode" style="width:25%">
+                <option value="true" selected>True</option> 
+                <option value="false">False</option>
+            </select> -->
+            <!-- <label for="node-input-scale" style="margin-left: 27%"><i class="fa fa-expand"></i> Scale</label> -->
+            <label for="node-input-scale"><i class="fa fa-expand"></i> Scale</label>
+            <input type="number" step="any" id="node-input-scale" placeholder="scale" style="width:50%; ">
+            <!-- <select id="node-input-scale" style="width:13%; margin-left:-10%">
+                <option value="300" selected>300</option> 
+                <option value="30">30</option>
+                <option value="6">6</option>
+            </select> -->
+        </div>
+    </div>
+
+    <div class="form-row columm">
+        <label style="width: auto;" for="node-input-compare_select"><i class="icon-tag"></i>Comparison Type:</label>
+        <select id="node-input-compare_select"  >
+            <option value="equalTo">Equal to</option>
+            <option value="interval">Interval</option>
+            <option value="maxValue">Maximum value (<)</option>
+            <option value="minValue">Minimum value (>)</option>  
         </select>
-        <!-- <label for="node-input-scale" style="margin-left: 27%"><i class="fa fa-expand"></i> Scale</label> -->
-        <label for="node-input-scale" style="margin-left: 7%"><i class="fa fa-expand"></i> Scale</label>
-        <input type="number" step="any" id="node-input-scale" placeholder="scale" style="width:32%; margin-left: -40px">
-        <!-- <select id="node-input-scale" style="width:13%; margin-left:-10%">
-            <option value="300" selected>300</option> 
-            <option value="30">30</option>
-            <option value="6">6</option>
-          </select> -->
+    </div>
+
+    <div class="form-row columm" style="display: flex;">
+        <div class="node-input-equal-to">
+          <div class="columm">
+            <label for="node-input-equalTo" style="width: max-content; !important"><i class="icon-tag"></i>Equal To: </label>
+            <input type="text" id="node-input-equalTo" style=" width:70px !important ">
+          </div>  
+        </div>
+
+        <div class=box>
+            <div class="node-input-min-value" style="display: none; width: min-content; float: left; margin-right: 40px;">
+                <div class="columm">
+                    <label for="node-input-minValue" style="width: max-content !important;"><i class="icon-tag"></i>Minimum Value: </label>
+                    <input type="text" id="node-input-minValue" style=" width:70px !important ">
+                </div>  
+            </div>
+
+            <div class="node-input-max-value" style="display: none;">
+                <div class="columm">
+                    <label for="node-input-maxValue" style="width: max-content !important"><i class="icon-tag"></i>Maximum Value: </label>
+                    <input type="text" id="node-input-maxValue" style=" width:70px !important ">
+                </div>  
+            </div>
+        </div>
+    </div>
+
+    <div class="hr-div-get-voltage-3">
+        <hr>
+        <span class="optional">Optional</span>
+        <hr>
+    </div>
+
+    <div class="form-row columm">
+        <label style="width: 50% !important;" for="node-input-name" ><i class="fa fa-tag"></i> Component Nickname</label>
+        <input type="text" id="node-input-name" placeholder="Name">
     </div>
     <!-- <div class="form-row">
         <label for="node-input-channel_number"><i class="fa fa-list-ul"></i> Channel number</label>
