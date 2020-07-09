@@ -5,43 +5,60 @@ module.exports = function(RED) {
 
     function getVoltage3Node(config) {
         RED.nodes.createNode(this, config);
-        this.compare_select = config.compare_select;
-        this.equalTo = config.equalTo;
-        this.maxValue = config.maxValue;
-        this.minValue = config.minValue;
+        this.compare_selectA = config.compare_selectA;
+        this.maxValueA = config.maxValueA;
+        this.minValueA = config.minValueA;
+
+        this.compare_selectB = config.compare_selectB;
+        this.maxValueB = config.maxValueB;
+        this.minValueB = config.minValueB;
+
+        this.compare_selectC = config.compare_selectC;
+        this.maxValueC = config.maxValueC;
+        this.minValueC = config.minValueC;
         var node = this
         node.AC_mode = config.AC_mode === "true" ? true : false;
         node.scale = config.scale;
-        // this.websocket = config.websocket;
-        // this.websocketConfig = RED.nodes.getNode(this.websocket);
         mapeamentoNode = RED.nodes.getNode(this.mapeamento);
         
-        // if (this.serialConfig) {
-        // node.port = serialPool.get(this.serialConfig);
         node.on('input', function(msg, send, done) {
-
-            var _compare = {};
-            if (node.compare_select == "equalTo") {
-                _compare = {
-                    voltage_value: {"==": (!isNaN(parseFloat(node.equalTo)))? parseFloat(node.equalTo):node.equalTo }
-                }
+            var _phaseA = {}
+            var _phaseB = {}
+            var _phaseC = {}
+            if (node.compare_selectA == "interval") {
+                _phaseA = {">=": parseFloat(node.minValueA), "<=": parseFloat(node.maxValueA)}
             }
-            if (node.compare_select == "interval") {
-                _compare = {
-                    voltage_value: {">=": parseFloat(node.minValue), "<=": parseFloat(node.maxValue)}
-                }
+            if (node.compare_selectA == "maxValue") {
+                _phaseA = {">=": null, "<=": parseFloat(node.maxValueA)}
             }
-            if (node.compare_select == "maxValue") {
-                _compare = {
-                    voltage_value: {">=": null, "<=": parseFloat(node.maxValue)}
-                }
+            if (node.compare_selectA == "minValue") {
+                _phaseA = {">=": parseFloat(node.minValueA), "<=": null}
             }
-            if (node.compare_select == "minValue") {
-                _compare = {
-                    voltage_value: {">=": parseFloat(node.minValue), "<=": null}
-                }
+            
+            if (node.compare_selectB == "interval") {
+                _phaseB = {">=": parseFloat(node.minValueB), "<=": parseFloat(node.maxValueB)}
             }
-
+            if (node.compare_selectB == "maxValue") {
+                _phaseB = {">=": null, "<=": parseFloat(node.maxValueB)}
+            }
+            if (node.compare_selectB == "minValue") {
+                _phaseB = {">=": parseFloat(node.minValueB), "<=": null}
+            }
+            
+            if (node.compare_selectC == "interval") {
+                _phaseC = {">=": parseFloat(node.minValueC), "<=": parseFloat(node.maxValueC)}
+            }
+            if (node.compare_selectC == "maxValue") {
+                _phaseC = {">=": null, "<=": parseFloat(node.maxValueC)}
+            }
+            if (node.compare_selectC == "minValue") {
+                _phaseC = {">=": parseFloat(node.minValueC), "<=": null}
+            }
+            var _compare = {
+                phase_A: _phaseA,
+                phase_B: _phaseB,
+                phase_C: _phaseC,
+            }
             var globalContext = node.context().global;
             var exportMode = globalContext.get("exportMode");
             var currentMode = globalContext.get("currentMode");
@@ -49,7 +66,6 @@ module.exports = function(RED) {
                 type: " multimeter_modular_V1.0",
                 slot: 1,
                 method: "get_voltage_3",
-                // channel_number: parseInt(node.channel_number),
                 AC_mode: node.AC_mode ,
                 scale: parseFloat(node.scale),
                 compare: _compare
@@ -59,24 +75,9 @@ module.exports = function(RED) {
             if(currentMode == "test"){file.slots[slot].jig_test.push(command)}
             else{file.slots[slot].jig_error.push(command)}
             globalContext.set("exportFile", file);
-            // node.status({fill:"green", shape:"dot", text:"done"}); // seta o status pra waiting
-            // msg.payload = command
+            console.log(command)
             send(msg)
         });
     }
     RED.nodes.registerType("get-voltage-3", getVoltage3Node);
-
-    // RED.httpAdmin.get("/getVoltage3",function(req,res) {
-    //     console.log(mapeamentoNode)
-    //     if(mapeamentoNode){
-    //         res.json([
-    //             {value:mapeamentoNode.valuePort1, label: mapeamentoNode.labelPort1, hasValue:false},
-    //         ])
-    //     }
-    //     else{
-    //         res.json([
-    //             {label:"APW |BPW | CPW", value: "0", hasValue:false},
-    //         ])
-    //     }
-    // });
 }
