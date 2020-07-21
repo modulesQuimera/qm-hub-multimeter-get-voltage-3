@@ -1,12 +1,13 @@
 <script type="text/javascript">
     RED.nodes.registerType('get-voltage-3',{
         category: 'multimeter modular',
-        color: '#C0C0C0',
+        color: '#32CD32',
         defaults: {
             name:{ value: "" },
             AC_mode:{ value:"" },
-            // channel_number:{ value:"" },
             scale: { value:"" },
+            slot: {value:"", required:true},
+
             compare_selectA: {value:"interval", required:true},
             maxValueA: {value: null},
             minValueA: {value: null},
@@ -21,8 +22,8 @@
         },
         inputs:1,
         outputs:1,
-        icon: "Get_Voltage_3.svg",
-        label: function() { return this.name || "Get Voltage-3" },
+        icon: "Multimeter_Modular.svg",
+        label: function() { return this.name? "Get Voltage-3 - " + this.name: "Get Voltage-3" },
         paletteLabel: "Get Voltage 3",
         oneditprepare: function() {
             var node = this;
@@ -143,6 +144,10 @@
             <input type="number" step="any" id="node-input-scale" placeholder="scale" style="width:50%; ">
      
         </div>
+    </div>
+    <div class="form-row columm">
+        <label  for="node-input-slot"><i class="fa fa-sliders"></i> Slot</label>
+        <input min="0" type="number" id="node-input-slot" style="width:20%;">
     </div>
 
     <hr class="hr-full">

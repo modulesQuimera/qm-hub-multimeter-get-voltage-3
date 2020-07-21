@@ -16,9 +16,10 @@ module.exports = function(RED) {
         this.compare_selectC = config.compare_selectC;
         this.maxValueC = config.maxValueC;
         this.minValueC = config.minValueC;
+        this.AC_mode = config.AC_mode === "true" ? true : false;
+        this.scale = config.scale;
+        this.slot = config.slot;
         var node = this
-        node.AC_mode = config.AC_mode === "true" ? true : false;
-        node.scale = config.scale;
         mapeamentoNode = RED.nodes.getNode(this.mapeamento);
         
         node.on('input', function(msg, send, done) {
@@ -63,17 +64,34 @@ module.exports = function(RED) {
             var exportMode = globalContext.get("exportMode");
             var currentMode = globalContext.get("currentMode");
             var command = {
-                type: " multimeter_modular_V1.0",
-                slot: 1,
+                type: " multimeter_modular_V1_0",
+                slot: parseInt(node.slot),
                 method: "get_voltage_3",
                 AC_mode: node.AC_mode ,
                 scale: parseFloat(node.scale),
-                compare: _compare
+                compare: _compare,
+                get_output: {},
             }
             var file = globalContext.get("exportFile")
             var slot = globalContext.get("slot");
-            if(currentMode == "test"){file.slots[slot].jig_test.push(command)}
-            else{file.slots[slot].jig_error.push(command)}
+            if(!(slot === "begin" || slot === "end")){
+                if(currentMode == "test"){
+                    file.slots[slot].jig_test.push(command);
+                }
+                else{
+                    file.slots[slot].jig_error.push(command);
+                }
+            }
+            else{
+                if(slot === "begin"){
+                    file.slots[0].jig_test.push(command);
+                    // file.begin.push(command);
+                }
+                else{
+                    file.slots[3].jig_test.push(command);
+                    // file.end.push(command);
+                }
+            }
             globalContext.set("exportFile", file);
             console.log(command)
             send(msg)

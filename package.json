@@ -1,6 +1,6 @@
 {
   "name": "qm-multimeter-get-voltage-3",
-  "version": "1.0.9",
+  "version": "1.0.10",
   "description": "multimeter get-voltage module - Node-Red",
   "main": "get-voltage-3.js",
   "scripts": {
