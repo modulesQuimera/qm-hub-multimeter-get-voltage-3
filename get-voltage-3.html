@@ -4,9 +4,8 @@
         color: '#32CD32',
         defaults: {
             name:{ value: "" },
-            AC_mode:{ value:"" },
-            scale: { value:"" },
-            slot: {value:"", required:true},
+            gain: { value:"1" },
+            slot: {value:"1", required:true},
 
             compare_selectA: {value:"interval", required:true}, compare_selectB: {value:"interval", required:true}, compare_selectC: {value:"interval", required:true},
             maxValueA: {value: null}, maxValueB: {value: null}, maxValueC: {value: null},
@@ -15,30 +14,30 @@
             
             qtdGetVoltage3:{value:0},
             controle:{value:0},
-            AC_mode1:{ value:"" }, scale1: { value:"" },
-            AC_mode2:{ value:"" }, scale2: { value:"" },
-            AC_mode3:{ value:"" }, scale3: { value:"" },
-            AC_mode4:{ value:"" }, scale4: { value:"" },
-            AC_mode5:{ value:"" }, scale5: { value:"" },
-            AC_mode6:{ value:"" }, scale6: { value:"" },
-            AC_mode7:{ value:"" }, scale7: { value:"" },
-            AC_mode8:{ value:"" }, scale8: { value:"" },
-            AC_mode9:{ value:"" }, scale9: { value:"" },
-            AC_mode10:{ value:"" }, scale10: { value:"" },
-            AC_mode11:{ value:"" }, scale11: { value:"" },
-            AC_mode12:{ value:"" }, scale12: { value:"" },
-            AC_mode13:{ value:"" }, scale13: { value:"" },
-            AC_mode14:{ value:"" }, scale14: { value:"" },
-            AC_mode15:{ value:"" }, scale15: { value:"" },
-            AC_mode16:{ value:"" }, scale16: { value:"" },
-            AC_mode17:{ value:"" }, scale17: { value:"" },
-            AC_mode18:{ value:"" }, scale18: { value:"" },
-            AC_mode19:{ value:"" }, scale19: { value:"" },
-            AC_mode20:{ value:"" }, scale20: { value:"" },
-            AC_mode21:{ value:"" }, scale21: { value:"" },
-            AC_mode22:{ value:"" }, scale22: { value:"" },
-            AC_mode23:{ value:"" }, scale23: { value:"" },
-            AC_mode24:{ value:"" }, scale24: { value:"" },
+            gain1: { value:"1" },
+            gain2: { value:"1" },
+            gain3: { value:"1" },
+            gain4: { value:"1" },
+            gain5: { value:"1" },
+            gain6: { value:"1" },
+            gain7: { value:"1" },
+            gain8: { value:"1" },
+            gain9: { value:"1" },
+            gain10: { value:"1" },
+            gain11: { value:"1" },
+            gain12: { value:"1" },
+            gain13: { value:"1" },
+            gain14: { value:"1" },
+            gain15: { value:"1" },
+            gain16: { value:"1" },
+            gain17: { value:"1" },
+            gain18: { value:"1" },
+            gain19: { value:"1" },
+            gain20: { value:"1" },
+            gain21: { value:"1" },
+            gain22: { value:"1" },
+            gain23: { value:"1" },
+            gain24: { value:"1" },
             compare_selectA1: {value:"interval"}, compare_selectB1: {value:"interval"}, compare_selectC1: {value:"interval"},
             maxValueA1: {value: null}, maxValueB1: {value: null}, maxValueC1: {value: null},
             minValueA1: {value: null}, minValueB1: {value: null}, minValueC1: {value: null},
@@ -739,20 +738,19 @@
     </div>
     <div style="display: flex;">
         <div class="form-row columm-30" style="float: left;">
-            <label for="node-input-AC_mode"><i class="fa fa-sliders"></i> AC mode</label>
-            <select id="node-input-AC_mode" style="width:60%">
-                <option value="true" selected>True</option> 
-                <option value="false">False</option>
+            <label for="node-input-AC_mode"><i class="fa fa-sliders"></i> Mode</label>
+            <select id="node-input-AC_mode" style="width: 70%;" disabled>
+                <option value="true" selected>AC mode</option> 
+                
             </select>
         </div>
         <div class="form-row columm" style="float: left;">
-            <label for="node-input-scale"><i class="fa fa-expand"></i> Scale</label>
-            <input type="number" step="any" id="node-input-scale" placeholder="scale" style="width:70%; ">
+            <label for="node-input-gain"><i class="fa fa-expand"></i> Gain</label>
+            <input type="number" step="any" id="node-input-gain" placeholder="gain" style="width:70%; ">
      
         </div>
      
     </div>
-   
 
     <div class="form-row "  style=" position: relative; display:flex;">
         <div class="form-row columm" style="width: 200px;"> 
@@ -810,7 +808,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div>.
 
     <div class="form-row "  style=" position: relative; display:flex;">
         <div class="form-row columm" style="width: 200px;">
@@ -850,15 +848,15 @@
         </div>
         <div style="display: flex;" style="width: 200px;">
             <div class="form-row columm-30" style="float: left;">
-                <label for="node-input-AC_mode1"><i class="fa fa-sliders"></i> AC mode</label>
-                <select id="node-input-AC_mode1" style="width:50%">
-                    <option value="true" selected>True</option> 
-                    <option value="false">False</option>
+                <label for="node-input-AC_mode1"><i class="fa fa-sliders"></i> Mode</label>
+                <select id="node-input-AC_mode1" style="width: 70%;" disabled>
+                    <option value="true" selected>AC mode</option> 
+                    
                 </select>
             </div>
             <div class="form-row columm-50" style="float: left;">
-                <label for="node-input-scale1"><i class="fa fa-expand"></i> Scale</label>
-                <input type="number" step="any" id="node-input-scale1" placeholder="scale" style="width:50%; ">
+                <label for="node-input-gain1"><i class="fa fa-expand"></i> Gain</label>
+                <input type="number" step="any" id="node-input-gain1" placeholder="gain" style="width:50%; ">
             </div>
         </div>
         <!-- <hr class="hr-full"> -->
@@ -956,15 +954,15 @@
         </div>
         <div style="display: flex;">
             <div class="form-row columm-30" style="float: left;">
-                <label for="node-input-AC_mode2"><i class="fa fa-sliders"></i> AC mode</label>
-                <select id="node-input-AC_mode2" style="width:50%">
-                    <option value="true" selected>True</option> 
-                    <option value="false">False</option>
+                <label for="node-input-AC_mode2"><i class="fa fa-sliders"></i> Mode</label>
+                <select id="node-input-AC_mode2" style="width: 70%;" disabled>
+                    <option value="true" selected>AC mode</option> 
+                    
                 </select>
             </div>
             <div class="form-row columm-50" style="float: left;">
-                <label for="node-input-scale2"><i class="fa fa-expand"></i> Scale</label>
-                <input type="number" step="any" id="node-input-scale2" placeholder="scale" style="width:50%; ">
+                <label for="node-input-gain2"><i class="fa fa-expand"></i> Gain</label>
+                <input type="number" step="any" id="node-input-gain2" placeholder="gain" style="width:50%; ">
             </div>
         </div>
         <!-- <hr class="hr-full"> -->
@@ -1062,15 +1060,15 @@
         </div>
         <div style="display: flex;">
             <div class="form-row columm-30" style="float: left;">
-                <label for="node-input-AC_mode3"><i class="fa fa-sliders"></i> AC mode</label>
-                <select id="node-input-AC_mode3" style="width:50%">
-                    <option value="true" selected>True</option> 
-                    <option value="false">False</option>
+                <label for="node-input-AC_mode3"><i class="fa fa-sliders"></i> Mode</label>
+                <select id="node-input-AC_mode3" style="width: 70%;" disabled>
+                    <option value="true" selected>AC mode</option> 
+                    
                 </select>
             </div>
             <div class="form-row columm-50" style="float: left;">
-                <label for="node-input-scale3"><i class="fa fa-expand"></i> Scale</label>
-                <input type="number" step="any" id="node-input-scale3" placeholder="scale" style="width:50%; ">
+                <label for="node-input-gain3"><i class="fa fa-expand"></i> Gain</label>
+                <input type="number" step="any" id="node-input-gain3" placeholder="gain" style="width:50%; ">
             </div>
         </div>
         <!-- <hr class="hr-full"> -->
@@ -1168,15 +1166,15 @@
         </div>
         <div style="display: flex;">
             <div class="form-row columm-30" style="float: left;">
-                <label for="node-input-AC_mode4"><i class="fa fa-sliders"></i> AC mode</label>
-                <select id="node-input-AC_mode4" style="width:50%">
-                    <option value="true" selected>True</option> 
-                    <option value="false">False</option>
+                <label for="node-input-AC_mode4"><i class="fa fa-sliders"></i> Mode</label>
+                <select id="node-input-AC_mode4" style="width: 70%;" disabled>
+                    <option value="true" selected>AC mode</option> 
+                    
                 </select>
             </div>
             <div class="form-row columm-50" style="float: left;">
-                <label for="node-input-scale4"><i class="fa fa-expand"></i> Scale</label>
-                <input type="number" step="any" id="node-input-scale4" placeholder="scale" style="width:50%; ">
+                <label for="node-input-gain4"><i class="fa fa-expand"></i> Gain</label>
+                <input type="number" step="any" id="node-input-gain4" placeholder="gain" style="width:50%; ">
             </div>
         </div>
         <!-- <hr class="hr-full"> -->
@@ -1274,15 +1272,15 @@
         </div>
         <div style="display: flex;">
             <div class="form-row columm-30" style="float: left;">
-                <label for="node-input-AC_mode5"><i class="fa fa-sliders"></i> AC mode</label>
-                <select id="node-input-AC_mode5" style="width:50%">
-                    <option value="true" selected>True</option> 
-                    <option value="false">False</option>
+                <label for="node-input-AC_mode5"><i class="fa fa-sliders"></i> Mode</label>
+                <select id="node-input-AC_mode5" style="width: 70%;" disabled>
+                    <option value="true" selected>AC mode</option> 
+                    
                 </select>
             </div>
             <div class="form-row columm-50" style="float: left;">
-                <label for="node-input-scale5"><i class="fa fa-expand"></i> Scale</label>
-                <input type="number" step="any" id="node-input-scale5" placeholder="scale" style="width:50%; ">
+                <label for="node-input-gain5"><i class="fa fa-expand"></i> Gain</label>
+                <input type="number" step="any" id="node-input-gain5" placeholder="gain" style="width:50%; ">
             </div>
         </div>
         <!-- <hr class="hr-full"> -->
@@ -1380,15 +1378,15 @@
         </div>
         <div style="display: flex;">
             <div class="form-row columm-30" style="float: left;">
-                <label for="node-input-AC_mode6"><i class="fa fa-sliders"></i> AC mode</label>
-                <select id="node-input-AC_mode6" style="width:50%">
-                    <option value="true" selected>True</option> 
-                    <option value="false">False</option>
+                <label for="node-input-AC_mode6"><i class="fa fa-sliders"></i> Mode</label>
+                <select id="node-input-AC_mode6" style="width: 70%;" disabled>
+                    <option value="true" selected>AC mode</option> 
+                    
                 </select>
             </div>
             <div class="form-row columm-50" style="float: left;">
-                <label for="node-input-scale6"><i class="fa fa-expand"></i> Scale</label>
-                <input type="number" step="any" id="node-input-scale6" placeholder="scale" style="width:50%; ">
+                <label for="node-input-gain6"><i class="fa fa-expand"></i> Gain</label>
+                <input type="number" step="any" id="node-input-gain6" placeholder="gain" style="width:50%; ">
             </div>
         </div>
         <!-- <hr class="hr-full"> -->
@@ -1486,15 +1484,15 @@
         </div>
         <div style="display: flex;">
             <div class="form-row columm-30" style="float: left;">
-                <label for="node-input-AC_mode7"><i class="fa fa-sliders"></i> AC mode</label>
-                <select id="node-input-AC_mode7" style="width:50%">
-                    <option value="true" selected>True</option> 
-                    <option value="false">False</option>
+                <label for="node-input-AC_mode7"><i class="fa fa-sliders"></i> Mode</label>
+                <select id="node-input-AC_mode7" style="width: 70%;" disabled>
+                    <option value="true" selected>AC mode</option> 
+                    
                 </select>
             </div>
             <div class="form-row columm-50" style="float: left;">
-                <label for="node-input-scale7"><i class="fa fa-expand"></i> Scale</label>
-                <input type="number" step="any" id="node-input-scale7" placeholder="scale" style="width:50%; ">
+                <label for="node-input-gain7"><i class="fa fa-expand"></i> Gain</label>
+                <input type="number" step="any" id="node-input-gain7" placeholder="gain" style="width:50%; ">
             </div>
         </div>
         <!-- <hr class="hr-full"> -->
@@ -1592,15 +1590,15 @@
         </div>
         <div style="display: flex;">
             <div class="form-row columm-30" style="float: left;">
-                <label for="node-input-AC_mode8"><i class="fa fa-sliders"></i> AC mode</label>
-                <select id="node-input-AC_mode8" style="width:50%">
-                    <option value="true" selected>True</option> 
-                    <option value="false">False</option>
+                <label for="node-input-AC_mode8"><i class="fa fa-sliders"></i> Mode</label>
+                <select id="node-input-AC_mode8" style="width: 70%;" disabled>
+                    <option value="true" selected>AC mode</option> 
+                    
                 </select>
             </div>
             <div class="form-row columm-50" style="float: left;">
-                <label for="node-input-scale8"><i class="fa fa-expand"></i> Scale</label>
-                <input type="number" step="any" id="node-input-scale8" placeholder="scale" style="width:50%; ">
+                <label for="node-input-gain8"><i class="fa fa-expand"></i> Gain</label>
+                <input type="number" step="any" id="node-input-gain8" placeholder="gain" style="width:50%; ">
             </div>
         </div>
         <!-- <hr class="hr-full"> -->
@@ -1698,15 +1696,15 @@
         </div>
         <div style="display: flex;">
             <div class="form-row columm-30" style="float: left;">
-                <label for="node-input-AC_mode9"><i class="fa fa-sliders"></i> AC mode</label>
-                <select id="node-input-AC_mode9" style="width:50%">
-                    <option value="true" selected>True</option> 
-                    <option value="false">False</option>
+                <label for="node-input-AC_mode9"><i class="fa fa-sliders"></i> Mode</label>
+                <select id="node-input-AC_mode9" style="width: 70%;" disabled>
+                    <option value="true" selected>AC mode</option> 
+                    
                 </select>
             </div>
             <div class="form-row columm-50" style="float: left;">
-                <label for="node-input-scale9"><i class="fa fa-expand"></i> Scale</label>
-                <input type="number" step="any" id="node-input-scale9" placeholder="scale" style="width:50%; ">
+                <label for="node-input-gain9"><i class="fa fa-expand"></i> Gain</label>
+                <input type="number" step="any" id="node-input-gain9" placeholder="gain" style="width:50%; ">
             </div>
         </div>
         <!-- <hr class="hr-full"> -->
@@ -1804,15 +1802,15 @@
         </div>
         <div style="display: flex;">
             <div class="form-row columm-30" style="float: left;">
-                <label for="node-input-AC_mode10"><i class="fa fa-sliders"></i> AC mode</label>
-                <select id="node-input-AC_mode10" style="width:50%">
-                    <option value="true" selected>True</option> 
-                    <option value="false">False</option>
+                <label for="node-input-AC_mode10"><i class="fa fa-sliders"></i> Mode</label>
+                <select id="node-input-AC_mode10" style="width: 70%;" disabled>
+                    <option value="true" selected>AC mode</option> 
+                    
                 </select>
             </div>
             <div class="form-row columm-50" style="float: left;">
-                <label for="node-input-scale10"><i class="fa fa-expand"></i> Scale</label>
-                <input type="number" step="any" id="node-input-scale10" placeholder="scale" style="width:50%; ">
+                <label for="node-input-gain10"><i class="fa fa-expand"></i> Gain</label>
+                <input type="number" step="any" id="node-input-gain10" placeholder="gain" style="width:50%; ">
             </div>
         </div>
         <!-- <hr class="hr-full"> -->
@@ -1910,15 +1908,15 @@
         </div>
         <div style="display: flex;">
             <div class="form-row columm-30" style="float: left;">
-                <label for="node-input-AC_mode11"><i class="fa fa-sliders"></i> AC mode</label>
-                <select id="node-input-AC_mode11" style="width:50%">
-                    <option value="true" selected>True</option> 
-                    <option value="false">False</option>
+                <label for="node-input-AC_mode11"><i class="fa fa-sliders"></i> Mode</label>
+                <select id="node-input-AC_mode11" style="width: 70%;" disabled>
+                    <option value="true" selected>AC mode</option> 
+                    
                 </select>
             </div>
             <div class="form-row columm-50" style="float: left;">
-                <label for="node-input-scale11"><i class="fa fa-expand"></i> Scale</label>
-                <input type="number" step="any" id="node-input-scale11" placeholder="scale" style="width:50%; ">
+                <label for="node-input-gain11"><i class="fa fa-expand"></i> Gain</label>
+                <input type="number" step="any" id="node-input-gain11" placeholder="gain" style="width:50%; ">
             </div>
         </div>
         <!-- <hr class="hr-full"> -->
@@ -2016,15 +2014,15 @@
         </div>
         <div style="display: flex;">
             <div class="form-row columm-30" style="float: left;">
-                <label for="node-input-AC_mode12"><i class="fa fa-sliders"></i> AC mode</label>
-                <select id="node-input-AC_mode12" style="width:50%">
-                    <option value="true" selected>True</option> 
-                    <option value="false">False</option>
+                <label for="node-input-AC_mode12"><i class="fa fa-sliders"></i> Mode</label>
+                <select id="node-input-AC_mode12" style="width: 70%;" disabled>
+                    <option value="true" selected>AC mode</option> 
+                    
                 </select>
             </div>
             <div class="form-row columm-50" style="float: left;">
-                <label for="node-input-scale12"><i class="fa fa-expand"></i> Scale</label>
-                <input type="number" step="any" id="node-input-scale12" placeholder="scale" style="width:50%; ">
+                <label for="node-input-gain12"><i class="fa fa-expand"></i> Gain</label>
+                <input type="number" step="any" id="node-input-gain12" placeholder="gain" style="width:50%; ">
             </div>
         </div>
         <!-- <hr class="hr-full"> -->
@@ -2122,15 +2120,15 @@
         </div>
         <div style="display: flex;">
             <div class="form-row columm-30" style="float: left;">
-                <label for="node-input-AC_mode13"><i class="fa fa-sliders"></i> AC mode</label>
-                <select id="node-input-AC_mode13" style="width:50%">
-                    <option value="true" selected>True</option> 
-                    <option value="false">False</option>
+                <label for="node-input-AC_mode13"><i class="fa fa-sliders"></i> Mode</label>
+                <select id="node-input-AC_mode13" style="width: 70%;" disabled>
+                    <option value="true" selected>AC mode</option> 
+                    
                 </select>
             </div>
             <div class="form-row columm-50" style="float: left;">
-                <label for="node-input-scale13"><i class="fa fa-expand"></i> Scale</label>
-                <input type="number" step="any" id="node-input-scale13" placeholder="scale" style="width:50%; ">
+                <label for="node-input-gain13"><i class="fa fa-expand"></i> Gain</label>
+                <input type="number" step="any" id="node-input-gain13" placeholder="gain" style="width:50%; ">
             </div>
         </div>
         <!-- <hr class="hr-full"> -->
@@ -2228,15 +2226,15 @@
         </div>
         <div style="display: flex;">
             <div class="form-row columm-30" style="float: left;">
-                <label for="node-input-AC_mode14"><i class="fa fa-sliders"></i> AC mode</label>
-                <select id="node-input-AC_mode14" style="width:50%">
-                    <option value="true" selected>True</option> 
-                    <option value="false">False</option>
+                <label for="node-input-AC_mode14"><i class="fa fa-sliders"></i> Mode</label>
+                <select id="node-input-AC_mode14" style="width: 70%;" disabled>
+                    <option value="true" selected>AC mode</option> 
+                    
                 </select>
             </div>
             <div class="form-row columm-50" style="float: left;">
-                <label for="node-input-scale14"><i class="fa fa-expand"></i> Scale</label>
-                <input type="number" step="any" id="node-input-scale14" placeholder="scale" style="width:50%; ">
+                <label for="node-input-gain14"><i class="fa fa-expand"></i> Gain</label>
+                <input type="number" step="any" id="node-input-gain14" placeholder="gain" style="width:50%; ">
             </div>
         </div>
         <!-- <hr class="hr-full"> -->
@@ -2334,15 +2332,15 @@
         </div>
         <div style="display: flex;">
             <div class="form-row columm-30" style="float: left;">
-                <label for="node-input-AC_mode15"><i class="fa fa-sliders"></i> AC mode</label>
-                <select id="node-input-AC_mode15" style="width:50%">
-                    <option value="true" selected>True</option> 
-                    <option value="false">False</option>
+                <label for="node-input-AC_mode15"><i class="fa fa-sliders"></i> Mode</label>
+                <select id="node-input-AC_mode15" style="width: 70%;" disabled>
+                    <option value="true" selected>AC mode</option> 
+                    
                 </select>
             </div>
             <div class="form-row columm-50" style="float: left;">
-                <label for="node-input-scale15"><i class="fa fa-expand"></i> Scale</label>
-                <input type="number" step="any" id="node-input-scale15" placeholder="scale" style="width:50%; ">
+                <label for="node-input-gain15"><i class="fa fa-expand"></i> Gain</label>
+                <input type="number" step="any" id="node-input-gain15" placeholder="gain" style="width:50%; ">
             </div>
         </div>
         <!-- <hr class="hr-full"> -->
@@ -2440,15 +2438,15 @@
         </div>
         <div style="display: flex;">
             <div class="form-row columm-30" style="float: left;">
-                <label for="node-input-AC_mode16"><i class="fa fa-sliders"></i> AC mode</label>
-                <select id="node-input-AC_mode16" style="width:50%">
-                    <option value="true" selected>True</option> 
-                    <option value="false">False</option>
+                <label for="node-input-AC_mode16"><i class="fa fa-sliders"></i> Mode</label>
+                <select id="node-input-AC_mode16" style="width: 70%;" disabled>
+                    <option value="true" selected>AC mode</option> 
+                    
                 </select>
             </div>
             <div class="form-row columm-50" style="float: left;">
-                <label for="node-input-scale16"><i class="fa fa-expand"></i> Scale</label>
-                <input type="number" step="any" id="node-input-scale16" placeholder="scale" style="width:50%; ">
+                <label for="node-input-gain16"><i class="fa fa-expand"></i> Gain</label>
+                <input type="number" step="any" id="node-input-gain16" placeholder="gain" style="width:50%; ">
             </div>
         </div>
         <!-- <hr class="hr-full"> -->
@@ -2546,15 +2544,15 @@
         </div>
         <div style="display: flex;">
             <div class="form-row columm-30" style="float: left;">
-                <label for="node-input-AC_mode17"><i class="fa fa-sliders"></i> AC mode</label>
-                <select id="node-input-AC_mode17" style="width:50%">
-                    <option value="true" selected>True</option> 
-                    <option value="false">False</option>
+                <label for="node-input-AC_mode17"><i class="fa fa-sliders"></i> Mode</label>
+                <select id="node-input-AC_mode17" style="width: 70%;" disabled>
+                    <option value="true" selected>AC mode</option> 
+                    
                 </select>
             </div>
             <div class="form-row columm-50" style="float: left;">
-                <label for="node-input-scale17"><i class="fa fa-expand"></i> Scale</label>
-                <input type="number" step="any" id="node-input-scale17" placeholder="scale" style="width:50%; ">
+                <label for="node-input-gain17"><i class="fa fa-expand"></i> Gain</label>
+                <input type="number" step="any" id="node-input-gain17" placeholder="gain" style="width:50%; ">
             </div>
         </div>
         <!-- <hr class="hr-full"> -->
@@ -2652,15 +2650,15 @@
         </div>
         <div style="display: flex;">
             <div class="form-row columm-30" style="float: left;">
-                <label for="node-input-AC_mode18"><i class="fa fa-sliders"></i> AC mode</label>
-                <select id="node-input-AC_mode18" style="width:50%">
-                    <option value="true" selected>True</option> 
-                    <option value="false">False</option>
+                <label for="node-input-AC_mode18"><i class="fa fa-sliders"></i> Mode</label>
+                <select id="node-input-AC_mode18" style="width: 70%;" disabled>
+                    <option value="true" selected>AC mode</option> 
+                    
                 </select>
             </div>
             <div class="form-row columm-50" style="float: left;">
-                <label for="node-input-scale18"><i class="fa fa-expand"></i> Scale</label>
-                <input type="number" step="any" id="node-input-scale18" placeholder="scale" style="width:50%; ">
+                <label for="node-input-gain18"><i class="fa fa-expand"></i> Gain</label>
+                <input type="number" step="any" id="node-input-gain18" placeholder="gain" style="width:50%; ">
             </div>
         </div>
         <!-- <hr class="hr-full"> -->
@@ -2758,15 +2756,15 @@
         </div>
         <div style="display: flex;">
             <div class="form-row columm-30" style="float: left;">
-                <label for="node-input-AC_mode19"><i class="fa fa-sliders"></i> AC mode</label>
-                <select id="node-input-AC_mode19" style="width:50%">
-                    <option value="true" selected>True</option> 
-                    <option value="false">False</option>
+                <label for="node-input-AC_mode19"><i class="fa fa-sliders"></i> Mode</label>
+                <select id="node-input-AC_mode19" style="width: 70%;" disabled>
+                    <option value="true" selected>AC mode</option> 
+                    
                 </select>
             </div>
             <div class="form-row columm-50" style="float: left;">
-                <label for="node-input-scale19"><i class="fa fa-expand"></i> Scale</label>
-                <input type="number" step="any" id="node-input-scale19" placeholder="scale" style="width:50%; ">
+                <label for="node-input-gain19"><i class="fa fa-expand"></i> Gain</label>
+                <input type="number" step="any" id="node-input-gain19" placeholder="gain" style="width:50%; ">
             </div>
         </div>
         <!-- <hr class="hr-full"> -->
@@ -2864,15 +2862,15 @@
         </div>
         <div style="display: flex;">
             <div class="form-row columm-30" style="float: left;">
-                <label for="node-input-AC_mode20"><i class="fa fa-sliders"></i> AC mode</label>
-                <select id="node-input-AC_mode20" style="width:50%">
-                    <option value="true" selected>True</option> 
-                    <option value="false">False</option>
+                <label for="node-input-AC_mode20"><i class="fa fa-sliders"></i> Mode</label>
+                <select id="node-input-AC_mode20" style="width: 70%;" disabled>
+                    <option value="true" selected>AC mode</option> 
+                    
                 </select>
             </div>
             <div class="form-row columm-50" style="float: left;">
-                <label for="node-input-scale20"><i class="fa fa-expand"></i> Scale</label>
-                <input type="number" step="any" id="node-input-scale20" placeholder="scale" style="width:50%; ">
+                <label for="node-input-gain20"><i class="fa fa-expand"></i> Gain</label>
+                <input type="number" step="any" id="node-input-gain20" placeholder="gain" style="width:50%; ">
             </div>
         </div>
         <!-- <hr class="hr-full"> -->
@@ -2970,15 +2968,15 @@
         </div>
         <div style="display: flex;">
             <div class="form-row columm-30" style="float: left;">
-                <label for="node-input-AC_mode21"><i class="fa fa-sliders"></i> AC mode</label>
-                <select id="node-input-AC_mode21" style="width:50%">
-                    <option value="true" selected>True</option> 
-                    <option value="false">False</option>
+                <label for="node-input-AC_mode21"><i class="fa fa-sliders"></i> Mode</label>
+                <select id="node-input-AC_mode21" style="width: 70%;" disabled>
+                    <option value="true" selected>AC mode</option> 
+                    
                 </select>
             </div>
             <div class="form-row columm-50" style="float: left;">
-                <label for="node-input-scale21"><i class="fa fa-expand"></i> Scale</label>
-                <input type="number" step="any" id="node-input-scale21" placeholder="scale" style="width:50%; ">
+                <label for="node-input-gain21"><i class="fa fa-expand"></i> Gain</label>
+                <input type="number" step="any" id="node-input-gain21" placeholder="gain" style="width:50%; ">
             </div>
         </div>
         <!-- <hr class="hr-full"> -->
@@ -3076,15 +3074,15 @@
         </div>
         <div style="display: flex;">
             <div class="form-row columm-30" style="float: left;">
-                <label for="node-input-AC_mode22"><i class="fa fa-sliders"></i> AC mode</label>
-                <select id="node-input-AC_mode22" style="width:50%">
-                    <option value="true" selected>True</option> 
-                    <option value="false">False</option>
+                <label for="node-input-AC_mode22"><i class="fa fa-sliders"></i> Mode</label>
+                <select id="node-input-AC_mode22" style="width: 70%;" disabled>
+                    <option value="true" selected>AC mode</option> 
+                    
                 </select>
             </div>
             <div class="form-row columm-50" style="float: left;">
-                <label for="node-input-scale22"><i class="fa fa-expand"></i> Scale</label>
-                <input type="number" step="any" id="node-input-scale22" placeholder="scale" style="width:50%; ">
+                <label for="node-input-gain22"><i class="fa fa-expand"></i> Gain</label>
+                <input type="number" step="any" id="node-input-gain22" placeholder="gain" style="width:50%; ">
             </div>
         </div>
         <!-- <hr class="hr-full"> -->
@@ -3182,15 +3180,15 @@
         </div>
         <div style="display: flex;">
             <div class="form-row columm-30" style="float: left;">
-                <label for="node-input-AC_mode23"><i class="fa fa-sliders"></i> AC mode</label>
-                <select id="node-input-AC_mode23" style="width:50%">
-                    <option value="true" selected>True</option> 
-                    <option value="false">False</option>
+                <label for="node-input-AC_mode23"><i class="fa fa-sliders"></i> Mode</label>
+                <select id="node-input-AC_mode23" style="width: 70%;" disabled>
+                    <option value="true" selected>AC mode</option> 
+                    
                 </select>
             </div>
             <div class="form-row columm-50" style="float: left;">
-                <label for="node-input-scale23"><i class="fa fa-expand"></i> Scale</label>
-                <input type="number" step="any" id="node-input-scale23" placeholder="scale" style="width:50%; ">
+                <label for="node-input-gain23"><i class="fa fa-expand"></i> Gain</label>
+                <input type="number" step="any" id="node-input-gain23" placeholder="gain" style="width:50%; ">
             </div>
         </div>
         <!-- <hr class="hr-full"> -->
@@ -3288,15 +3286,15 @@
         </div>
         <div style="display: flex;">
             <div class="form-row columm-30" style="float: left;">
-                <label for="node-input-AC_mode24"><i class="fa fa-sliders"></i> AC mode</label>
-                <select id="node-input-AC_mode24" style="width:50%">
-                    <option value="true" selected>True</option> 
-                    <option value="false">False</option>
+                <label for="node-input-AC_mode24"><i class="fa fa-sliders"></i> Mode</label>
+                <select id="node-input-AC_mode24" style="width: 70%;" disabled>
+                    <option value="true" selected>AC mode</option> 
+                    
                 </select>
             </div>
             <div class="form-row columm-50" style="float: left;">
-                <label for="node-input-scale24"><i class="fa fa-expand"></i> Scale</label>
-                <input type="number" step="any" id="node-input-scale24" placeholder="scale" style="width:50%; ">
+                <label for="node-input-gain24"><i class="fa fa-expand"></i> Gain</label>
+                <input type="number" step="any" id="node-input-gain24" placeholder="gain" style="width:50%; ">
             </div>
         </div>
         <!-- <hr class="hr-full"> -->
@@ -3386,19 +3384,6 @@
             </div>
         </div>
     </div>
-
-
-
-
-    <!-- <div class="hr-div-get-voltage-3">
-        <hr>
-        <span class="optional">Optional</span>
-        <hr>
-    </div>
-    <div class="form-row columm">
-        <label style="width: 50% !important;" for="node-input-name" ><i class="fa fa-tag"></i> Component Nickname</label>
-        <input type="text" id="node-input-name" placeholder="Name">
-    </div> -->
 </script>
 
 <script type="text/html" data-help-name="get-voltage-3">
