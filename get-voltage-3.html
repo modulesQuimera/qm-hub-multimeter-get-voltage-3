@@ -131,12 +131,12 @@
                 self.controle = self.controle+1 <= 24 ? self.controle + 1 : 24;
 
                 $(".voltage"+self.controle).show();
-                console.log(self.controle);
+                
             });
             $("#remVoltage3").click(function(){
                 $(".voltage"+self.controle).hide();
                 self.controle = self.controle-1 >= 0 ? self.controle - 1 : 0;
-                console.log(self.controle);
+                
             });
 
             $("#node-input-compare_selectA").on("change", function(e) {

@@ -4,7 +4,6 @@ module.exports = function(RED) {
     var mapeamentoNode;
 
     function multipleGetVoltage3(self, file, slot, currentMode){
-        // console.log("entoruuuu")
         for(var g=0; g<self.qtdGetVoltage3; g++){
             var _phaseA_n = {};
             var _phaseB_n = {};
@@ -243,7 +242,6 @@ module.exports = function(RED) {
                 }
             }
             globalContext.set("exportFile", file);
-            console.log(command)
             send(msg)
         });
     }

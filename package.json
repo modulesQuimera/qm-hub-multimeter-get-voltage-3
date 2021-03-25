@@ -1,6 +1,6 @@
 {
   "name": "qm-multimeter-get-voltage-3",
-  "version": "1.0.13",
+  "version": "1.0.14",
   "description": "multimeter get-voltage module - Node-Red",
   "main": "get-voltage-3.js",
   "scripts": {
@@ -8,15 +8,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/modulesQuimera/qm-hub-multimeter-get-voltage-3.git"
+    "url": "git+https://github.com/modulesQuimera/qm-multimeter-get-voltage-3.git"
   },
   "keywords": ["quimera", "hub", "JIG"],
   "author": "HUB-LSE",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/modulesQuimera/qm-hub-multimeter-get-voltage-3/issues"
+    "url": "https://github.com/modulesQuimera/qm-multimeter-get-voltage-3/issues"
   },
-  "homepage": "https://github.com/modulesQuimera/qm-hub-multimeter-get-voltage-3#readme",
+  "homepage": "https://github.com/modulesQuimera/qm-multimeter-get-voltage-3#readme",
   "node-red": {
     "nodes": {
      "get-voltage-3": "get-voltage-3.js"
